@@ -17,4 +17,4 @@ mongoose.connect(url, { useNewUrlParser: true }).then(()=>{
     app.listen(3000,()=>{
         console.log('server started...');
     })
-}).catch((err)=>console.log(error));
+}).catch((error)=>console.log(error));

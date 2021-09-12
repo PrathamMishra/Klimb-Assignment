@@ -15,12 +15,12 @@
 </head>
 <body>
     <div class="container">
-    <form action="/api/upload" method="post" enctype="multipart/form-data">
-        <h1><i class="bi bi-file-earmark-arrow-up fa-5x"></i></h1>
-        <input type='file' name="file"/>
-        <button type='submit' disabled class="btn btn-primary">Submit</button>
-    </form>
-    <h5>Upload a .xlsx or .xls file here</h5>
+        <form action="/api/upload" method="post" enctype="multipart/form-data">
+            <h1><i class="bi bi-file-earmark-arrow-up fa-5x"></i></h1>
+            <input type='file' name="file"/>
+            <button type='submit' disabled class="btn btn-primary">Submit</button>
+        </form>
+        <h5>Upload a .xlsx or .xls file here</h5>
     </div>
     <script>
         const h5=document.querySelector('h5');
@@ -28,14 +28,6 @@
         const input=document.querySelector('input');
         const i=document.querySelector('i');
         const button=document.querySelector('button');
-
-
-        form.addEventListener('submit',(e)=>{
-            e.preventDefault();
-            form.style.display="none";
-            h5.innerText="Thank you! File uploaded Succesfully."
-            h5.style.color='lightgreen';
-        });
 
         input.addEventListener('change',(e)=>{
             const ext = e.target.files[0].name.split(".");

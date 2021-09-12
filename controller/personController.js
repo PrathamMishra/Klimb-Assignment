@@ -1,7 +1,9 @@
 const excelToJson = require('convert-excel-to-json');
 const Person = require("../model/personSchema");
+const path = require('path')
 
 module.exports = function uploadController(req,res){
+    console.log('hit')
     Person.deleteMany({}).then(()=>{
         const excelData = excelToJson({
             source: req.file.buffer,
@@ -24,8 +26,9 @@ module.exports = function uploadController(req,res){
                 }
             }]
         });
+        console.log(excelData.Sheet1)
         Person.insertMany(excelData.Sheet1,{ordered: false},()=>{
-            res.send("hey");
+            res.sendFile(path.join(__dirname,'../','/views/thankyou.html'));
         })
     })
 }
